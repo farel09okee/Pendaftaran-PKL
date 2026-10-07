@@ -1,4 +1,5 @@
 <?php
+include 'database.php';
 $errors = [];
 $nama = $nis = $email = $jurusan = $perusahaan = $alasan = "";
 $tech_stack = [];
@@ -195,6 +196,22 @@ if (isset($_POST['submit'])) {
         echo '<tr><td>Alasan</td><td>: ' . nl2br(htmlspecialchars($alasan)) . '</td></tr>';
         echo '</table>';
         echo '</div>';
+
+        if (empty($errors)) {
+    $tech_str = !empty($tech_stack) ? implode(', ', $tech_stack) : '';
+
+    try {
+        $stmt = $pdo->prepare(
+            "INSERT INTO pendaftaran (nama, nis, email, jurusan, perusahaan, tech_stack, alasan)
+             VALUES (?, ?, ?, ?, ?, ?, ?)"
+        );
+        $stmt->execute([$nama, $nis, $email, $jurusan, $perusahaan, $tech_str, $alasan]);
+
+        $id_baru = $pdo->lastInsertId();
+    } catch (PDOException $e) {
+        $errors[] = "Gagal menyimpan data: " . $e->getMessage();
+    }
+}
     }
     ?>
 
