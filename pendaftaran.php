@@ -161,9 +161,9 @@ if (isset($_POST['submit'])) {
         <select name="perusahaan" id="perusahaan">
             <option value="">-- Pilih Perusahaan --</option>
             <option value="PT Telkom Indonesia" <?= ($perusahaan === 'PT Telkom Indonesia') ? 'selected' : '' ?>>PT Telkom Indonesia</option>
-            <option value="PT Astra International" <?= ($perusahaan === 'PT Astra International') ? 'selected' : '' ?>>PT Astra International</option>
-            <option value="CV Kreatif Digital" <?= ($perusahaan === 'CV Kreatif Digital') ? 'selected' : '' ?>>CV Kreatif Digital</option>
-            <option value="Startup Nusantara" <?= ($perusahaan === 'Startup Nusantara') ? 'selected' : '' ?>>Startup Nusantara</option>
+            <option value="PT Astra International" <?= ($perusahaan === 'PT Freeport') ? 'selected' : '' ?>>PT Freeport</option>
+            <option value="CV Kreatif Digital" <?= ($perusahaan === 'PT Pelindo') ? 'selected' : '' ?>>PT Pelindo</option>
+            <option value="Startup Nusantara" <?= ($perusahaan === 'PT Pertamina') ? 'selected' : '' ?>>PT Pertamina</option>
         </select>
 
         <label>Kompetensi / Tech Stack yang Dikuasai</label>
