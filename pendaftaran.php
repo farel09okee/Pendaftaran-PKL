@@ -1,14 +1,8 @@
 <?php
-// ============================================
-// Inisialisasi variabel & array error
-// ============================================
 $errors = [];
 $nama = $nis = $email = $jurusan = $perusahaan = $alasan = "";
 $tech_stack = [];
 
-// ============================================
-// Proses hanya jika tombol submit ditekan
-// ============================================
 if (isset($_POST['submit'])) {
 
     // --- Ambil data dari $_POST (dengan trim) ---
@@ -20,7 +14,7 @@ if (isset($_POST['submit'])) {
     $alasan     = trim($_POST['alasan'] ?? '');
     $tech_stack = $_POST['tech'] ?? []; // checkbox berupa array
 
-    // --- Validasi field wajib (Nama & NIS) ---
+    
     if (empty($nama)) {
         $errors[] = "Nama Lengkap wajib diisi!";
     }
@@ -30,7 +24,7 @@ if (isset($_POST['submit'])) {
         $errors[] = "NIS harus berupa angka!";
     }
 
-    // --- Validasi tambahan (opsional tapi bagus) ---
+    
     if (empty($email)) {
         $errors[] = "Email wajib diisi!";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -161,9 +155,9 @@ if (isset($_POST['submit'])) {
         <select name="perusahaan" id="perusahaan">
             <option value="">-- Pilih Perusahaan --</option>
             <option value="PT Telkom Indonesia" <?= ($perusahaan === 'PT Telkom Indonesia') ? 'selected' : '' ?>>PT Telkom Indonesia</option>
-            <option value="PT Astra International" <?= ($perusahaan === 'PT Freeport') ? 'selected' : '' ?>>PT Freeport</option>
-            <option value="CV Kreatif Digital" <?= ($perusahaan === 'PT Pelindo') ? 'selected' : '' ?>>PT Pelindo</option>
-            <option value="Startup Nusantara" <?= ($perusahaan === 'PT Pertamina') ? 'selected' : '' ?>>PT Pertamina</option>
+            <option value="PT Freeport" <?= ($perusahaan === 'PT Freeport') ? 'selected' : '' ?>>PT Freeport</option>
+            <option value="PT Pelindo" <?= ($perusahaan === 'PT Pelindo') ? 'selected' : '' ?>>PT Pelindo</option>
+            <option value="PT Pertamina" <?= ($perusahaan === 'PT Pertamina') ? 'selected' : '' ?>>PT Pertamina</option>
         </select>
 
         <label>Kompetensi / Tech Stack yang Dikuasai</label>
